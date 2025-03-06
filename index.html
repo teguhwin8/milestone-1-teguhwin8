@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teguh Widodo - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Header with Navigation Menu -->
     <header>
-      <h1>Teguh Widodo</h1>
+      <h1>Teguh Coding</h1>
       <p>Frontend Web Developer</p>
-      <nav>
+      <button id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="fullscreen-menu">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Me</a></li>
@@ -45,7 +51,11 @@
           <li>CSS</li>
           <li>JavaScript</li>
           <li>React</li>
+          <li>Next.js</li>
+          <li>Tailwind CSS</li>
+          <li>Typescript</li>
           <li>Git</li>
+          <li>Docker</li>
         </ul>
       </section>
 
@@ -70,10 +80,21 @@
           <h3>Semen Tiga Roda</h3>
           <img
             src="./assets/images/semen.webp"
-            alt="Screenshot of Project Title 2"
+            alt="Screenshot of sementigaroda.com"
           />
           <p>A modern corporate website built with Next.js and Tailwind CSS</p>
           <a href="https://sementigaroda.com" target="_blank">View Project</a>
+        </article>
+        <article>
+          <h3>Myrootsy</h3>
+          <img
+            src="./assets/images/myrootsy.webp"
+            alt="Screenshot of Myrootsy.id"
+          />
+          <p>
+            School management platform for integrated student data management
+          </p>
+          <a href="https://myrootsy.id" target="_blank">View Project</a>
         </article>
       </section>
 
@@ -104,5 +125,28 @@
     <footer>
       <p>&copy; 2025 Teguh Widodo. All rights reserved.</p>
     </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const nav = document.querySelector("nav");
+
+        if (menuToggle && nav) {
+          menuToggle.addEventListener("click", function () {
+            menuToggle.classList.toggle("active");
+            nav.classList.toggle("active");
+          });
+
+          // Close menu when clicking on a link
+          const navLinks = document.querySelectorAll("nav a");
+          navLinks.forEach((link) => {
+            link.addEventListener("click", function () {
+              menuToggle.classList.remove("active");
+              nav.classList.remove("active");
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
